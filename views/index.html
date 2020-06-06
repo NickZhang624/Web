@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="/assets/css/w3.css">
+        <link rel="stylesheet" href="/assets/css/styles.css">
+    </head>
+
+    <body>
+        <nav id="top-nav">
+            <div class="w3-bar w3-black">
+                <a href="#" id="logo" class="w3-bar-item w3-button w3-mobile w3-bold">RWC &copy;</a>
+                <a href="/login_form" class="w3-bar-item w3-button w3-mobile w3-right">Login</a>
+                <a href="/register_form" class="w3-bar-item w3-button w3-mobile w3-right">Register</a>
+            </div>
+        </nav>
+
+        <header>
+            <h1 class="w3-text-black"><strong>Rugby World Cup - 2019</strong></h1>
+            <p>Your portal to the Rugby World Cup - 2019</p>
+        </header>
+
+        <section>
+            <nav id="filter" class="w3-border-top w3-border-bottom">
+                <div id="filter-left">
+                    <h5><strong>Stats</strong></h5>
+                </div>
+
+                <div id="filter-center">
+                    <input type="text" class="w3-bar-item w3-input w3-border" 
+                    oninput="w3.filterHTML('#players-grid', '.w3-card', this.value)" placeholder="Search..">
+                </div>
+
+                <div id="filter-right">
+                    <h5><strong>Teams</strong></h5>
+                </div>
+            </nav>
+        </section>
+
+        <div class="main-area">
+            <section>
+                <div id="coach-panel" class="w3-card w3-margin-top w3-animate-zoom">
+                    <img id="imgs" src="../assets/img/coaches/{{coach}}.png" alt="{{coach}} image">
+                    <div class="w3-container">
+                        <h5><strong>Coach: {{coach}}</strong></h5>
+                    </div>
+                </div>
+
+                <div id="player-panel" class="w3-card w3-animate-zoom">
+                        <img id="imgs" src="../assets/img/players/{{image}}" alt="{{name}} image">
+                        <div class="w3-container">
+                            <h5><strong>{{name}}</strong></h5>
+                            <p>Team: {{team}}</p>
+                            <p>Position: {{position}}</p>
+                            <p>Age: {{age}}</p>
+                            <p>Height: {{height}}</p>
+                            <p>Weight: {{weight}}</p>
+                        </div>
+                    </div>
+            </section>
+
+            <section id="players-grid" class="players-grid">
+                <div class="w3-card w3-hover-shadow" w3-repeat="data">
+                    <img class="pointer" src="../assets/img/players/{{image}}"
+                    alt="{{name}} image" data-player_id={{player_id}}
+                    onclick="getPlayer(event)">
+                    <div class="w3-container">
+                        <h5><strong>{{name}}</strong></h5>
+                        <p>{{position}}</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <ul id="teams" class="w3-ul w3-hoverable">
+                <li class="pointor" w3-repeat="data" data-id={{id}} onclick="getPlayers(event)">
+                    {{ team }}
+                </li>
+                </ul>
+            </section>
+        </div>
+        <footer>
+             <p>Created by: Nick Zhang</p>   
+        </footer>
+
+        <script src="/assets/js/w3.js"></script>
+        <script src="/assets/js/main.js"></script>
+    </body>
+</html>
